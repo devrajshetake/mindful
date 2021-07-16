@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Sign in Form like Google</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<script src="../../src/app.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style>
+    .login-form {
+        width: 330px;
+    	margin: 30px auto;
+    }
+    .login-form h2 {
+        font-size: 19px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .login-form form {        
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);        
+        margin-bottom: 10px;
+		padding: 30px;
+    }
+    .login-form .avatar {
+        width: 90px;
+        margin-bottom: 20px;
+    }
+    .login-form .form-control, .login-form .btn {
+        min-height: 38px;        
+    }
+    .login-form input[type="email"] {
+        border-radius: 2px 2px 0 0;
+    }
+    .login-form input[type="password"] {
+        border-radius: 0 0 2px 2px;
+        margin-top: -1px;
+    }
+	.login-form input.form-control:focus {
+        position: relative;
+        z-index: 2;
+    }
+    .login-form .btn {        
+        font-size: 15px;
+		font-weight: bold;
+		border-radius: 2px;
+    }
+</style>
+</head>
+<body>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Mental Health</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/quotes">Motivation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Blogs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Take a Test</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Inspire-Bot</a>
+                        <a class="dropdown-item" href="#">About Us</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/contact">Contact Us</a>
+                    </div>
+                </li>
+
+            </ul>
+                <a class="btn btn-outline-success my-2 my-sm-0" href="/register" role="button">Sign Up</a>
+                <a class="btn btn-outline-success my-2 my-sm-0" href="/login" role="button">Login</a>
+            
+        </div>
+    </nav>
+<style>
+    .btn{
+        margin-right: 10px;
+    }
+</style>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    
+
+<div class="login-form">
+    <h2>Sign in to Your Account</h2>
+    <form action="/login" method="POST">
+        <div class="text-center">
+            <img src="/img/login/login.png" class="img-circle avatar" alt="Avatar">
+        </div>        
+        <div class="form-group">
+            <input name="email" type="email" class="form-control" placeholder="Email" required="required">
+            <input name="password" type="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <button    type="submit" class="btn btn-primary btn-block">Sign in</button>
+        </div>
+        <div class="clearfix">
+            <!-- {{!-- <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label> --}} -->
+            <a href="#" class="pull-right">Forgot Password?</a>
+        </div>        
+    </form>
+    <p class="text-center"><a href="./register.html">Create an Account</a></p>
+</div>
+</body>
+</html>

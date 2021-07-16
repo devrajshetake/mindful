@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <title>Mindful | Quotes</title>
+</head>
+
+<body>
+
+{{>navbar}}
+    
+
+    <div class="header">
+        <p id="quote"></p>
+        <a id="tweetQuote" ><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+        <p id="author"></p>
+        <div id="getMessage">
+            <img class="icon" src="https://d30y9cdsu7xlg0.cloudfront.net/png/17148-200.png">
+            <!--<img id="getMessage" class="icon" src="https://pixabay.com/static/uploads/photo/2016/03/31/23/19/buddha-1297531_960_720.png">-->
+            <p class="prompt">Inspire Me</p>
+        </div>
+    </div>
+
+    <style>
+        .header {
+            font-family: 'Lato', sans-serif;
+            text-align: center;
+            color: #333;
+            margin: 2% 20%;
+        }
+
+        .icon {
+            display: block;
+            cursor: pointer;
+            margin: auto;
+            width: 10%;
+            -o-transition: .5s;
+            -ms-transition: .5s;
+            -moz-transition: .5s;
+            -webkit-transition: .5s;
+            transition: .5s;
+        }
+
+        .icon:hover {
+            cursor: pointer;
+            -webkit-filter: opacity(.2);
+            filter: opacity(.2);
+        }
+
+        .prompt {
+            cursor: pointer;
+            margin: auto;
+            width: 13rem;
+        }
+
+        #tweetQuote {
+            display: block;
+            color: blue;
+            cursor: pointer;
+        }
+
+        #quote {
+            font-size: 3rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        #author {
+            font-size: 2rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+
+    </style>
+
+<script>
+
+
+    const newQuote = document.getElementById("getMessage");
+    const quotes = document.getElementById("quote");
+    const author = document.getElementById("author");
+    const tweet = document.getElementById("tweetQuote");
+    let realData = "";
+    let quoteData = "";
+
+    const getNewQuotes = async () => {
+         const api = "https://type.fit/api/quotes"; //https://type.fit/api/quotes 
+        let data = await fetch(api);
+        let rndNum = Math.floor(Math.random() * (1200 + 1));
+        realData = await data.json();
+        quoteData = realData[rndNum];
+        quotes.innerText = `${realData[rndNum].text}`;
+        if (quoteData.author == null)
+            author.innerText = "Anonymous";
+        else
+            author.innerText = `${realData[rndNum].author}`;
+
+    }
+    const tweetNow = () => {
+        let tweetPost = `https://twitter.com/intent/tweet?text=${quoteData.text}`;
+        window.open(tweetPost);
+    }
+
+
+    newQuote.addEventListener("click", getNewQuotes);
+    tweet.addEventListener("click", tweetNow);
+    getNewQuotes();
+</script>
+
+
+</body>
+
+</html>

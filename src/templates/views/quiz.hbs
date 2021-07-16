@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<script src="../../src/app.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<title>Mindful | The Test</title>
+</head>
+<body>
+
+<h3>Please wait loading.....</h3>
+
+<script src="https://unpkg.com/tripetto-runner-foundation"></script>
+<script src="https://unpkg.com/tripetto-runner-autoscroll"></script>
+<script src="https://unpkg.com/tripetto-services"></script>
+<script>
+var tripetto = TripettoServices.init({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiR0ZPNCtRYUhNSGllVTlmZkFsUVUzUS9ZTTdYVGhQcGNWQ2hHV0E3SEVHWT0iLCJkZWZpbml0aW9uIjoiVlp5Q1ZleVo2VXh1SEQzdzZCUkYzanpnQXFwdjFGSUsydW9INHh2Sk13Zz0iLCJ0eXBlIjoiY29sbGVjdCJ9.PcgYWqmefxSuXumgugzM1l0e7y16jaQ68j9j8GiEEpw" });
+
+TripettoAutoscroll.run({
+    element: document.body,
+    definition: tripetto.definition,
+    styles: tripetto.styles,
+    l10n: tripetto.l10n,
+    locale: tripetto.locale,
+    translations: tripetto.translations,
+    onSubmit: function(instance) {
+        // TODO: Handle the results
+        // For example retrieve the results as a CSV-file:
+        var csv = TripettoRunner.Export.CSV(instance);
+        // Or retrieve the individual fields:
+        var fields = TripettoRunner.Export.fields(instance);
+    }
+});
+</script>
+</body>
+</html>
